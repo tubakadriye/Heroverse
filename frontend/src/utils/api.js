@@ -1,3 +1,6 @@
+const API_URL = "https://heroverse-api.onrender.com";
+
+
 export const useApi = () => {
 
     const makeRequest = async (endpoint, options = {}) => {
@@ -8,8 +11,9 @@ export const useApi = () => {
             }
         }
 
+
         const response = await fetch(
-            `http://localhost:8000/${endpoint}`,
+            `${API_URL}/${endpoint}`,
             {
                 ...defaultOptions,
                 ...options
