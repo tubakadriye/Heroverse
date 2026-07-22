@@ -1,4 +1,5 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
+
 
 from . import models
 
@@ -69,10 +70,11 @@ def get_favorites(db: Session):
 
     return (
         db.query(models.Favorite)
-        .joinedload(models.Favorite.hero)
+        .options(
+            joinedload(models.Favorite.hero)
+        )
         .all()
     )
-
 #Check if already favorite
 def is_favorite(db: Session, hero_id: int):
 

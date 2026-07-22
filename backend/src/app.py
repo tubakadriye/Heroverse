@@ -14,7 +14,8 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.add_middleware(CORSMiddleware, 
+app.add_middleware(
+                  CORSMiddleware, 
                    allow_origins=["https://myheroverse.netlify.app",
                                   "http://localhost:5173"],
                    allow_credentials = True,
