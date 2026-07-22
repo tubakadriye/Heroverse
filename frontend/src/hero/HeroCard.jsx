@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export function HeroCard({hero}) {
+
         if (!hero) return null;
 
         const image =

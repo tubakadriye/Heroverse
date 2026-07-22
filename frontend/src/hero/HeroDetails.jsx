@@ -71,7 +71,8 @@ export function HeroDetails() {
     }
 
     const favorite = async()=>{
-        try {
+
+       try {
 
         
 
@@ -89,6 +90,7 @@ export function HeroDetails() {
         }
 
     }
+
 
     return (
         <div className="bg-white
@@ -112,76 +114,74 @@ export function HeroDetails() {
             />
 
             <div>
-                <h1 className="text-4xl font-bold text-blue-800">
+                <h1 className="text-4xl font-bold text-blue-900">
                     {hero.hero.name}
-                </h1>               
+                </h1>
+                
             </div>
 
-                        <div className="
-            bg-gradient-to-r
-            from-blue-100
-            to-purple-100
-            rounded-2xl
-            p-6
-            space-y-3
-            ">
+            <div className="
+bg-gradient-to-r
+from-blue-100
+to-purple-100
+rounded-2xl
+p-6
+space-y-3
+text-blue-900
+">
 
-            <h2 className="
-            text-3xl
-            font-bold
-            text-blue-900
-            ">
-            Biography
-            </h2>
-
-
-            <div>
-            <span className="font-bold">
-            Full Name:
-            </span>
-
-            {hero.biography?.["full-name"]}
-            </div>
+<h2 className="
+text-3xl
+font-bold
+text-blue-900
+">
+Biography
+</h2>
 
 
-            <div>
-            <span className="font-bold">
-            Publisher:
-            </span>
+<div>
+<span className="font-bold ">
+Full Name:
+</span>
 
-            {hero.biography?.publisher}
-            </div>
+{hero.biography?.["full-name"]}
+</div>
 
 
-            <div>
-            <span className="font-bold">
-            Birth Place:
-            </span>
+<div>
+<span className="font-bold">
+Publisher:
+</span>
 
-            {hero.biography?.["place-of-birth"]}
-            </div>
+{hero.biography?.publisher}
+</div>
 
-            <div>
-            <span className="font-bold">
-            Alignment:
-            </span>
 
-            {hero.biography?.alignment}
-            </div>
+<div>
+<span className="font-bold">
+Birth Place:
+</span>
 
-            </div>
+{hero.biography?.["place-of-birth"]}
+</div>
+
+<div>
+<span className="font-bold">
+Alignment:
+</span>
+
+{hero.biography?.alignment}
+</div>
+
+</div>
+
             <div className="
             grid
             grid-cols-2
             gap-4
             ">
-                {
-                Object.entries(hero.powerstats).map(
-                ([key,value])=>(
 
-                <div 
-                key={key}
-                className="
+                <div className="
                 bg-blue-100
                 rounded-xl
                 p-4
@@ -190,15 +190,38 @@ export function HeroDetails() {
                 border-2
                 border-blue-300
                 "> 
-                {key} : {value}
+                Intelligence: {hero.powerstats.intelligence}</div>
+                <div className="
+                bg-blue-100
+                rounded-xl
+                p-4
+                font-bold
+                text-blue-800
+                border-2
+                border-blue-300
+                "> 
+                Strength: {hero.powerstats.strength}</div>
+                <div className="
+                bg-blue-100
+                rounded-xl
+                p-4
+                font-bold
+                text-blue-800
+                border-2
+                border-blue-300
+                "> 
+                Speed: {hero.powerstats.speed}</div>
+                <div className="
+                bg-blue-100
+                rounded-xl
+                p-4
+                font-bold
+                text-blue-800
+                border-2
+                border-blue-300
+                "> Power: {hero.powerstats.power}</div>
 
-                </div>
-                ))
-                }
-
-                </div>
-
-
+            </div>
 
            <button
 
