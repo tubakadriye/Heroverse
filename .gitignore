@@ -1,0 +1,86 @@
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Packaging
+dist/
+build/
+*.egg-info/
+
+
+# =========================
+# FastAPI / Backend
+# =========================
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+
+# =========================
+# Node / React
+# =========================
+
+node_modules/
+
+# Production builds
+dist/
+build/
+
+# Vite cache
+.vite/
+
+
+# =========================
+# IDE
+# =========================
+
+.vscode/
+.idea/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+
+# =========================
+# Coverage
+# =========================
+
+coverage/
+.coverage
+
+
+# =========================
+# Secrets
+# =========================
+
+*.pem
+*.key
