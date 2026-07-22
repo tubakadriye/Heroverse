@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 
 export function HeroCard({hero}) {
-
         if (!hero) return null;
 
         const image =
-            hero.image?.url || hero.image;
+        `https://heroverse-api.onrender.com/heroes/${hero.superhero_id || hero.id}/image`;
 
 return (
     <Link to={`/hero/${hero.superhero_id || hero.id}`}>

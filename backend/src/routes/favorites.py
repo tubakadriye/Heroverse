@@ -75,14 +75,25 @@ def add_favorite(
 # -----------------------------
 
 @router.get("/")
-async def get_favorites(
+def get_favorites(
     db: Session = Depends(get_db)
 ):
 
-    return crud.get_favorites(
-        db
-    )
+    favorites = crud.get_favorites(db)
 
+    return [
+        {
+            "id": favorite.id,
+            "hero": {
+                "id": favorite.hero.id,
+                "superhero_id": favorite.hero.superhero_id,
+                "name": favorite.hero.name,
+                "full_name": favorite.hero.full_name,
+                "publisher": favorite.hero.publisher
+            }
+        }
+        for favorite in favorites
+    ]
 
 # -----------------------------
 # Remove Favorite
