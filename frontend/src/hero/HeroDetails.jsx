@@ -71,6 +71,9 @@ export function HeroDetails() {
     }
 
     const favorite = async()=>{
+        try {
+
+        
 
         await addFavorite(
             makeRequest,
@@ -78,8 +81,12 @@ export function HeroDetails() {
         )
 
         alert(
-            "Added to favorites"
+            "Added to favorites ❤️"
         )
+
+        } catch(error) {
+            alert(error.message)
+        }
 
     }
 
@@ -93,7 +100,7 @@ export function HeroDetails() {
                 space-y-6">
 
             <img
-                src={hero.hero.image["url"]}
+                src={`https://heroverse-api.onrender.com/heroes/${id}/image`}
                 alt={hero.hero.name}
                 className="w-72
                 rounded-2xl
@@ -107,31 +114,74 @@ export function HeroDetails() {
             <div>
                 <h1 className="text-4xl font-bold text-blue-800">
                     {hero.hero.name}
-                </h1>
-
-                <p className="text-blue-800">
-                    Full Name: {hero.biography?.["full-name"]}
-                </p>
-
-                
+                </h1>               
             </div>
 
-            <div className="space-y-2">
-                <h2 className="text-2xl font-semibold text-blue-800">
-                    Biography
-                </h2>
-                <p className="text-blue-800"> Publisher : {hero.biography?.["publisher"]}</p>
+                        <div className="
+            bg-gradient-to-r
+            from-blue-100
+            to-purple-100
+            rounded-2xl
+            p-6
+            space-y-3
+            ">
 
-                <p className="text-blue-800">Place of Birth : {hero.biography["place-of-birth"]}</p>
+            <h2 className="
+            text-3xl
+            font-bold
+            text-blue-900
+            ">
+            Biography
+            </h2>
+
+
+            <div>
+            <span className="font-bold">
+            Full Name:
+            </span>
+
+            {hero.biography?.["full-name"]}
             </div>
 
+
+            <div>
+            <span className="font-bold">
+            Publisher:
+            </span>
+
+            {hero.biography?.publisher}
+            </div>
+
+
+            <div>
+            <span className="font-bold">
+            Birth Place:
+            </span>
+
+            {hero.biography?.["place-of-birth"]}
+            </div>
+
+            <div>
+            <span className="font-bold">
+            Alignment:
+            </span>
+
+            {hero.biography?.alignment}
+            </div>
+
+            </div>
             <div className="
             grid
             grid-cols-2
             gap-4
             ">
+                {
+                Object.entries(hero.powerstats).map(
+                ([key,value])=>(
 
-                <div className="
+                <div 
+                key={key}
+                className="
                 bg-blue-100
                 rounded-xl
                 p-4
@@ -140,38 +190,15 @@ export function HeroDetails() {
                 border-2
                 border-blue-300
                 "> 
-                Intelligence: {hero.powerstats.intelligence}</div>
-                <div className="
-                bg-blue-100
-                rounded-xl
-                p-4
-                font-bold
-                text-blue-800
-                border-2
-                border-blue-300
-                "> 
-                Strength: {hero.powerstats.strength}</div>
-                <div className="
-                bg-blue-100
-                rounded-xl
-                p-4
-                font-bold
-                text-blue-800
-                border-2
-                border-blue-300
-                "> 
-                Speed: {hero.powerstats.speed}</div>
-                <div className="
-                bg-blue-100
-                rounded-xl
-                p-4
-                font-bold
-                text-blue-800
-                border-2
-                border-blue-300
-                "> Power: {hero.powerstats.power}</div>
+                {key} : {value}
 
-            </div>
+                </div>
+                ))
+                }
+
+                </div>
+
+
 
            <button
 

@@ -69,7 +69,7 @@ def get_favorites(db: Session):
 
     return (
         db.query(models.Favorite)
-        .join(models.Hero)
+        .joinedload(models.Favorite.hero)
         .all()
     )
 

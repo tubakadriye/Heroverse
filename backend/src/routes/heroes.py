@@ -1,4 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import StreamingResponse
+import requests
+from io import BytesIO
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from ..database.db import get_db
@@ -71,9 +74,6 @@ def hero_details(
         "connections": get_connections(hero_id)
     }
 
-from fastapi.responses import Response
-import requests
-
 
 @router.get("/{hero_id}/image")
 def hero_image(hero_id: str):
@@ -96,8 +96,8 @@ def hero_image(hero_id: str):
             detail="Image not found"
         )
 
-    return Response(
-        content=response.content,
+    return StreamingResponse(
+        BytesIO(response.content),
         media_type="image/jpeg"
     )
 
