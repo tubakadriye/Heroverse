@@ -50,7 +50,8 @@ export function Favorites(){
 
         if (loading) {
         return (
-            <p className="text-xl text-yellow-300">
+            <p className="text-xl text-gray-400
+                text-lg">
                 Loading heroes...
             </p>
         );
@@ -71,27 +72,37 @@ export function Favorites(){
     return (
 
         <div className="
-            bg-white
-            text-blue-900
+           bg-slate-950/80
+            text-white
+            border
+            border-purple-500/30
+            backdrop-blur-xl
             rounded-3xl
             p-8
-            border-4
-            border-yellow-400
             shadow-xl
         ">
 
-            <h1 className="
-                text-4xl
-                font-bold
-                mb-4
-            ">
-                My Favorite Heroes
-            </h1>
+        <h1 className="
+        text-5xl
+        font-black
+        mb-8
+        bg-gradient-to-r
+        from-pink-400
+        via-blue-500
+        to-cyan-400
+        bg-clip-text
+        text-transparent
+        ">
+        ❤️ My Favorite Heroes
+        </h1>
 
 
             {
                 favorites.length === 0 ? (
-                    <p className="text-blue-100">
+                <p className="
+                text-gray-400
+                text-lg
+                ">
                         No favorite heroes yet.
                     </p>
 
@@ -102,7 +113,7 @@ export function Favorites(){
                         grid-cols-1
                         md:grid-cols-3
                         gap-6
-                        text-blue-900
+                  
 
                     ">
                         {

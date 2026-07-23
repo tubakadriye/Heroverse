@@ -8,7 +8,6 @@ export function HeroSearch() {
 
     const [heroName, setHeroName] = useState("")
     const [heroes, setHeroes] = useState([]);
-
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
     const {makeRequest} =useApi()
@@ -57,59 +56,64 @@ export function HeroSearch() {
             <h1 className="
             text-6xl
             font-black
-            text-white
-            drop-shadow-lg
+            bg-gradient-to-r
+            from-cyan-400
+            via-blue-500
+            to-purple-600
+            bg-clip-text
+            text-transparent
+            drop-shadow-[0_0_25px_rgba(59,130,246,0.8)]
             ">
-            Find Your Hero 🦸
+            ⚡ Find Your Hero
             </h1>
 
             <p className="
             text-xl
-            text-blue-100
+            text-slate-300
             ">
-            Discover amazing superheroes and their powers!
+            Discover amazing superheroes and their powers.
             </p>
 
 
-            <input
+                <input
                 className="
-               w-full
+                w-full
                 p-4
                 rounded-full
-                bg-white
-                text-gray-800
-                border-4
-                border-blue-300
-                shadow-lg
+                bg-slate-900
+                text-white
+                border
+                border-blue-400/30
+                shadow-xl
+                focus:border-cyan-400
+                focus:ring-2
+                focus:ring-cyan-400/40
                 focus:outline-none
-                focus:border-yellow-400
                 "
+
                 value={heroName}
                 onChange={(e)=>setHeroName(e.target.value)}
                 placeholder="Batman..."
             />
             <button
-
             className="
-            bg-red-600
+            bg-gradient-to-r
+            from-cyan-500
+            to-purple-600
             text-white
             font-bold
             px-8
             py-3
             rounded-full
-            border-4
-            border-yellow-300
             shadow-lg
-            hover:bg-red-700
+            shadow-purple-500/30
             hover:scale-105
-            active:scale-95
+            hover:shadow-cyan-400/50
             transition
             "
-
             onClick={searchHero}
-
             >
-            Search Hero 🚀
+            Search Hero ⚡
             </button>
 
             {loading && <p>Loading...</p>}
