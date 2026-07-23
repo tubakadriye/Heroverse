@@ -8,36 +8,18 @@ import { Favorites } from "./favorites/Favorites.jsx";
 
 //import "./App.css";
 
-
 function App() {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<HeroSearch />} />
 
-    return (
-        <Routes>
+        <Route path="/hero/:id" element={<HeroDetails />} />
 
-            <Route element={<Layout />}>
-
-                <Route 
-                    path="/" 
-                    element={<HeroSearch />}
-                />
-
-                <Route
-                    path="/hero/:id"
-                    element={<HeroDetails />}
-                />
-
-              
-
-                <Route
-                    path="/favorites"
-                    element={<Favorites />}
-                /> 
-
-            </Route>
-
-        </Routes>
-    );
+        <Route path="/favorites" element={<Favorites />} />
+      </Route>
+    </Routes>
+  );
 }
-
 
 export default App;

@@ -1,38 +1,37 @@
-  import { Outlet } from "react-router-dom";
-  import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-  export function Layout() {
-
+export function Layout() {
   return (
-
-  <div className="
+    <div
+      className="
   min-h-screen
   bg-slate-950
   text-white
   relative
   overflow-hidden
-  ">
+  "
+    >
+      {/* Background effects */}
 
-
-  {/* Background effects */}
-
-  <div className="
+      <div
+        className="
   absolute
   inset-0
   bg-[radial-gradient(circle_at_top_left,_#7c3aed55,_transparent_35%)]
-  ">
-  </div>
+  "
+      ></div>
 
-
-  <div className="
+      <div
+        className="
   absolute
   inset-0
   bg-[radial-gradient(circle_at_bottom_right,_#06b6d455,_transparent_40%)]
-  ">
-  </div>
+  "
+      ></div>
 
-
-  <div className="
+      <div
+        className="
   absolute
   top-20
   left-1/2
@@ -41,12 +40,11 @@
   bg-purple-600/20
   blur-3xl
   rounded-full
-  ">
-  </div>
+  "
+      ></div>
 
-
-
-  <header className="
+      <header
+        className="
   relative
   border-b
   border-white/10
@@ -55,22 +53,21 @@
   sticky
   top-0
   z-50
-  ">
-
-
-  <div className="
+  "
+      >
+        <div
+          className="
   max-w-6xl
   mx-auto
   flex
   justify-between
   items-center
   p-5
-  ">
-
-
-  <Link
-  to="/"
-  className="
+  "
+        >
+          <Link
+            to="/"
+            className="
   text-4xl
   font-black
   bg-gradient-to-r
@@ -82,71 +79,53 @@ from-cyan-400
   text-transparent
   drop-shadow-[0_0_20px_rgba(168,85,247,0.8)]
   "
-  >
+          >
+            ⚡ HeroVerse
+          </Link>
 
-  ⚡ HeroVerse
-
-  </Link>
-
-
-
-  <nav className="
+          <nav
+            className="
   flex
   gap-8
-  ">
-
-
-  <Link
-  to="/"
-  className="
+  "
+          >
+            <Link
+              to="/"
+              className="
   text-gray-200
   font-semibold
   hover:text-cyan-400
   transition
   "
-  >
-  Search Heroes
-  </Link>
+            >
+              Search Heroes
+            </Link>
 
-
-
-  <Link
-  to="/favorites"
-  className="
+            <Link
+              to="/favorites"
+              className="
   text-gray-200
   font-semibold
   hover:text-purple-400
   transition
   "
-  >
-  Favorites
-  </Link>
+            >
+              Favorites
+            </Link>
+          </nav>
+        </div>
+      </header>
 
-
-  </nav>
-
-
-  </div>
-
-  </header>
-
-
-
-  <main className="
+      <main
+        className="
   relative
   max-w-6xl
   mx-auto
   p-6
-  ">
-
-  <Outlet />
-
-  </main>
-
-
-
-  </div>
-
+  "
+      >
+        <Outlet />
+      </main>
+    </div>
   );
-
-  }
+}

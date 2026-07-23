@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 
-export function HeroCard({hero}) {
-        if (!hero) return null;
+export function HeroCard({ hero }) {
+  if (!hero) return null;
 
-        const image =
-        `https://heroverse-api.onrender.com/heroes/${hero.superhero_id || hero.id}/image`;
+  const image = `https://heroverse-api.onrender.com/heroes/${hero.superhero_id || hero.id}/image`;
 
-return (
+  return (
     <Link to={`/hero/${hero.superhero_id || hero.id}`}>
-
-        <div className="
+      <div
+        className="
         bg-gradient-to-br
         from-slate-900
         to-blue-950
@@ -24,38 +23,34 @@ return (
         transition
         w-72
         overflow-hidden
-        ">
-
-            <img
-            src={image}
-            alt={hero.name}
-            className="
+        "
+      >
+        <img
+          src={image}
+          alt={hero.name}
+          className="
             rounded-2xl
             border-2
             border-yellow-400/70
             shadow-xl
             "
-            />
+        />
 
-            <h2 className="
+        <h2
+          className="
                 text-2xl
                 font-black
                 text-cyan-300
                 mt-4
-            ">
-                {hero.name}
-            </h2>
+            "
+        >
+          {hero.name}
+        </h2>
 
-            <p className="text-gray-400">
-                {hero.biography?.["full-name"]}
-            </p>
+        <p className="text-gray-400">{hero.biography?.["full-name"]}</p>
 
-            <p className="text-blue-300">
-                {hero.biography?.publisher}
-            </p>
-
-        </div>
-
+        <p className="text-blue-300">{hero.biography?.publisher}</p>
+      </div>
     </Link>
-)
+  );
 }
